@@ -1076,7 +1076,7 @@ func (stmt *mysqlStmt) writeExecutePacket(args []driver.Value) error {
 				var b = a[:0]
 
 				if v.IsZero() {
-					b = append(b, "0000-00-00"...)
+					b = append(b, '0', '0', '0', '0', '-', '0', '0', '-', '0', '0')
 				} else {
 					b = v.In(mc.cfg.Loc).AppendFormat(b, timeFormat)
 				}
